@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Palette generator</title>
+    <!-- Include Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        h1 {
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello!</h1>
+    <form id = "form">
+        <input type = "text" name = "query">
+        <button>submit</button>
+    </form>
+    <script>
+        // # means try to find id which is form
+        const form = document.querySelector("#form");
+        form.addEventListener("submit", function (e){
+            e.preventDefault();
+            const query = form.elements.query.value;
+            axios.post('/palette', {
+                key: 'value'
+                })
+                .then(response => {
+                console.log('Success:', query);
+                })
+                .catch(error => {
+                console.error('Error:', error);
+                });
+        })
+    </script>
+</body>
+</html>
